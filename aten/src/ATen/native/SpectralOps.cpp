@@ -28,6 +28,7 @@
 #include <ATen/ops/empty.h>
 #include <ATen/ops/fft_fft2_native.h>
 #include <ATen/ops/fft_fft_native.h>
+#include <ATen/ops/_fft_fft_native.h>
 #include <ATen/ops/fft_fftfreq_native.h>
 #include <ATen/ops/fft_fftn_native.h>
 #include <ATen/ops/fft_fftshift_native.h>
@@ -365,6 +366,23 @@ Tensor fft_fft_symint(const Tensor& self, std::optional<SymInt> n, int64_t dim,
 }
 
 Tensor& fft_fft_symint_out(const Tensor& self, std::optional<SymInt> n,
+                    int64_t dim, std::optional<c10::string_view> norm, Tensor& out) {
+  if (self.is_complex()) {
+    fft_c2c("fft", out, self, n, dim, norm, /*forward=*/true);
+  } else {
+    fft_r2c("fft", out, self, n, dim, norm, /*forward=*/true, /*onesided=*/false);
+  }
+  return out;
+}
+
+Tensor _fft_fft_symint(const Tensor& self, std::optional<SymInt> n, int64_t dim,
+               std::optional<c10::string_view> norm) {
+  return self.is_complex() ?
+    fft_c2c("fft", {}, self, n, dim, norm, /*forward=*/true) :
+    fft_r2c("fft", {}, self, n, dim, norm, /*forward=*/true, /*onesided=*/false);
+}
+
+Tensor& _fft_fft_symint_out(const Tensor& self, std::optional<SymInt> n,
                     int64_t dim, std::optional<c10::string_view> norm, Tensor& out) {
   if (self.is_complex()) {
     fft_c2c("fft", out, self, n, dim, norm, /*forward=*/true);

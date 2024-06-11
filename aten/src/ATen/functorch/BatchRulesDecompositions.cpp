@@ -102,6 +102,7 @@ TORCH_LIBRARY_IMPL(aten, FuncTorchBatchedDecomposition, m) {
   m.impl("embedding_backward", native::embedding_backward_symint);
   OP_DECOMPOSE(expand_as);
   m.impl("fft_fft", native::fft_fft_symint);
+  m.impl("fft_fft_", native::_fft_fft_symint);
   OP_DECOMPOSE(fft_fftshift);
   m.impl("fft_fft2", native::fft_fft2_symint);
   m.impl("fft_fftn", native::fft_fftn_symint);

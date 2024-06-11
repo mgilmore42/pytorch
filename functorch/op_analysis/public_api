@@ -140,6 +140,7 @@ trunc
 fft_fftfreq
 fft_rfftfreq
 fft.fft
+fft.fft_test
 fft.fft2
 fft.fftn
 fft.fftshift

@@ -13500,6 +13500,18 @@
   dispatch:
     CompositeImplicitAutograd: fft_fft_symint_out
 
+- func: _fft_fft(Tensor self, SymInt? n=None, int dim=-1, str? norm=None) -> Tensor
+  python_module: fft
+  variants: function
+  dispatch:
+    CompositeImplicitAutograd: _fft_fft_symint
+
+- func: _fft_fft.out(Tensor self, SymInt? n=None, int dim=-1, str? norm=None, *, Tensor(a!) out) -> Tensor(a!)
+  python_module: fft
+  variants: function
+  dispatch:
+    CompositeImplicitAutograd: _fft_fft_symint_out
+
 - func: fft_ifft(Tensor self, SymInt? n=None, int dim=-1, str? norm=None) -> Tensor
   python_module: fft
   variants: function

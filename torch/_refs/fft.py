@@ -12,6 +12,7 @@ from torch._prims_common.wrappers import _maybe_convert_to_dtype, out_wrapper
 __all__ = [
     # Transforms
     "fft",
+    "fft_test"
     "fft2",
     "fftn",
     "hfft",
@@ -208,9 +209,9 @@ def fft(
     else:
         return _fft_r2c("fft", input, n, dim, norm, forward=True, onesided=False)
 
-@register_decomposition(aten.fft_fft_)
+@register_decomposition(aten._fft_fft)
 @out_wrapper()
-def fft_(
+def fft_test(
     input: TensorLikeType,
     n: Optional[int] = None,
     dim: int = -1,

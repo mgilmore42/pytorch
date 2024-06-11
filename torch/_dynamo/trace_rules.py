@@ -537,6 +537,7 @@ torch_c_binding_in_graph_functions = dict.fromkeys(
         "torch._C._export_opnames",
         "torch._C._faulty_agent_init",
         "torch._C._fft.fft_fft",
+        "torch._C._fft.fft_fft_test",
         "torch._C._fft.fft_fft2",
         "torch._C._fft.fft_fftfreq",
         "torch._C._fft.fft_fftn",

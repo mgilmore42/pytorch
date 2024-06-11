@@ -21,6 +21,22 @@ inline Tensor fft(
   return torch::fft_fft_symint(self, n, dim, norm);
 }
 
+/// Computes the 1 dimensional fast Fourier transform over a given dimension.
+/// See https://pytorch.org/docs/main/fft.html#torch.fft.fft.
+///
+/// Example:
+/// ```
+/// auto t = torch::randn(128, dtype=kComplexDouble);
+/// torch::fft::fft_(t);
+/// ```
+inline Tensor fft_(
+    const Tensor& self,
+    std::optional<SymInt> n = c10::nullopt,
+    int64_t dim = -1,
+    std::optional<c10::string_view> norm = c10::nullopt) {
+  return torch::_fft_fft_symint(self, n, dim, norm);
+}
+
 /// Computes the 1 dimensional inverse Fourier transform over a given dimension.
 /// See https://pytorch.org/docs/main/fft.html#torch.fft.ifft.
 ///

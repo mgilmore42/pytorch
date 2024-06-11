@@ -504,6 +504,7 @@ special_i1e, composite pointwise
 special_logit, composite pointwise
 special_expit, composite pointwise
 fft_fft, fft
+_fft_fft, fft
 fft_ifft, fft
 fft_rfft, fft
 fft_irfft, fft

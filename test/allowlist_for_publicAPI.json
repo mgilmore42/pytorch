@@ -234,6 +234,7 @@
   "torch.fft": [
     "Tensor",
     "fft",
+	"fft_test",
     "fft2",
     "fftfreq",
     "fftn",

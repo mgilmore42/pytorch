@@ -4,7 +4,7 @@ import torch
 from torch._C import _add_docstr, _fft  # type: ignore[attr-defined]
 from torch._torch_docs import factory_common_args, common_args
 
-__all__ = ['fft', 'ifft', 'fft2', 'ifft2', 'fftn', 'ifftn',
+__all__ = ['fft', 'fft_test', 'ifft', 'fft2', 'ifft2', 'fftn', 'ifftn',
            'rfft', 'irfft', 'rfft2', 'irfft2', 'rfftn', 'irfftn',
            'hfft', 'ihfft', 'fftfreq', 'rfftfreq', 'fftshift', 'ifftshift',
            'Tensor']
